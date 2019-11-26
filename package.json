@@ -2,6 +2,7 @@
   "name": "scoreboard-react",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://saltymouse.github.io/scoreboard-react/",
   "dependencies": {
     "emoji.json": "^12.1.0",
     "react": "^16.11.0",
