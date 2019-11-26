@@ -1,13 +1,13 @@
-import EmojiJson from "emoji.json";
+import EmojiJson from "gemoji/db/emoji.json";
 
-const randomAnimalEmoji = () => {
-  const animalEmojis = EmojiJson.filter(emoji =>
-    emoji.category.startsWith("Animals")
-  );
+const randomEmoji = () => {
+  const animalEmojis = EmojiJson.filter(emoji => {
+    return emoji.category.startsWith("Animals") && emoji.unicode_version <= 8;
+  });
 
   const randomEmojiIndex = Math.floor(Math.random() * animalEmojis.length);
 
-  return animalEmojis[randomEmojiIndex].char;
+  return animalEmojis[randomEmojiIndex].emoji;
 };
 
-export default randomAnimalEmoji;
+export default randomEmoji;
