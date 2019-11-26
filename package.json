@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://saltymouse.github.io/scoreboard-react/",
   "dependencies": {
+    "feather-icons": "^4.24.1",
     "gemoji": "https://github.com/github/gemoji",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",

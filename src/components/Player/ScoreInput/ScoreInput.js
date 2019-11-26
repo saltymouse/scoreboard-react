@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./ScoreInput.css";
 
-import { ReactComponent as CheckIcon } from "../../../icons/check.svg";
+import { ReactComponent as CheckIcon } from "feather-icons/dist/icons/check.svg";
 
 class ScoreInput extends Component {
   constructor() {
@@ -25,11 +25,13 @@ class ScoreInput extends Component {
   render() {
     console.log(this.state.inputValue && <CheckIcon />);
     return (
-      <div className={
-        this.state.inputValue !== ""
-          ? "score-input score-input--completed"
-          : "score-input"
-      }>
+      <div
+        className={
+          this.state.inputValue !== ""
+            ? "score-input score-input--completed"
+            : "score-input"
+        }
+      >
         <input
           className="score-input__field"
           type="number"
@@ -38,9 +40,7 @@ class ScoreInput extends Component {
           value={this.state.inputValue}
           onChange={this.handleValueChange}
         />
-        <div
-          className="score-input__indicator"
-        >
+        <div className="score-input__indicator">
           {this.state.inputValue !== "" && <CheckIcon />}
         </div>
       </div>
