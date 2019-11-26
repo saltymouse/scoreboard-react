@@ -1,0 +1,171 @@
+/* Players Container */
+.players {
+  display: grid;
+  flex: 1;
+  gap: var(--s-base);
+  grid-area: players;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "player-1 player-2" "player-3 player-4";
+  overflow: hidden;
+  padding: var(--s-base);
+}
+
+[data-active-players="1"] .players {
+  grid-template-areas: "player-1 player-1" "player-1 player-1";
+}
+
+[data-active-players="2"] .players {
+  grid-template-areas: "player-1 player-2" "player-1 player-2";
+}
+
+[data-active-players="3"] .players {
+  grid-template-areas: "player-1 player-2" "player-3 player-3";
+}
+
+/* Desktop / Landscape mode */
+@media (orientation: landscape) {
+  .players {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas: "player-1 player-2 player-3 player-4";
+  }
+
+  [data-active-players="1"] .players {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas: "player-1";
+  }
+
+  [data-active-players="2"] .players {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "player-1 player-2";
+  }
+
+  [data-active-players="3"] .players {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "player-1 player-2 player-3";
+  }
+
+  [data-active-players="3"] .game-round-button {
+    bottom: var(--s-base);
+    top: unset !important;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* Player Card */
+.player {
+  border-radius: var(--s-base);
+  display: grid;
+  grid-template-areas: "title" "body";
+  grid-template-rows: auto 1fr;
+  box-shadow: 1px 2px 3px var(--t-shadow-color),
+    -1px 2px 3px var(--t-shadow-color);
+  overflow: hidden;
+}
+
+/* Player: upper area of card (name/emoji) */
+.player__title {
+  align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  grid-area: title;
+  justify-content: center;
+  padding: var(--s-base) var(--s-small);
+}
+
+/* Player: lower area of card (score list) */
+.player__body {
+  background-color: var(--t-scorelist-color);
+  display: flex;
+  flex-flow: column nowrap;
+  grid-area: body;
+  justify-content: flex-start;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  padding: var(--s-base);
+}
+
+/* Player 1 */
+.player:nth-child(1) {
+  grid-area: player-1;
+}
+
+.player:nth-child(1) .player__title {
+  background-color: var(--t-player-1-title);
+}
+
+.player:nth-child(1) .score-total {
+  background-color: var(--t-player-1-total);
+}
+
+.player:nth-child(1) .score-list__score:last-child {
+  color: var(--t-player-1-highlight);
+}
+
+.player:nth-child(1) .score-input:not(.score-input--completed) {
+  background-color: var(--t-player-1-input);
+}
+
+/* Player 2 */
+.player:nth-child(2) {
+  grid-area: player-2;
+}
+
+.player:nth-child(2) .player__title {
+  background-color: var(--t-player-2-title);
+}
+
+.player:nth-child(2) .score-total {
+  background-color: var(--t-player-2-total);
+}
+
+.player:nth-child(2) .score-list__score:last-child {
+  color: var(--t-player-2-highlight);
+}
+
+.player:nth-child(2) .score-input:not(.score-input--completed) {
+  background-color: var(--t-player-2-input);
+}
+
+/* Player 3 */
+.player:nth-child(3) {
+  grid-area: player-3;
+}
+
+.player:nth-child(3) .player__title {
+  background-color: var(--t-player-3-title);
+}
+
+.player:nth-child(3) .score-total {
+  background-color: var(--t-player-3-total);
+}
+
+.player:nth-child(3) .score-list__score:last-child {
+  color: var(--t-player-3-highlight);
+}
+
+.player:nth-child(3) .score-input:not(.score-input--completed) {
+  background-color: var(--t-player-3-input);
+}
+
+/* Player 4 */
+.player:nth-child(4) {
+  grid-area: player-4;
+}
+
+.player:nth-child(4) .score-total {
+  background-color: var(--t-player-4-total);
+}
+
+.player:nth-child(4) .player__title {
+  background-color: var(--t-player-4-title);
+}
+
+.player:nth-child(4) .score-list__score:last-child {
+  color: var(--t-player-4-highlight);
+}
+
+.player:nth-child(4) .score-input:not(.score-input--completed) {
+  background-color: var(--t-player-4-input);
+}

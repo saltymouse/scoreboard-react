@@ -1,0 +1,13 @@
+.score-total {
+  background-color: var(--c-black);
+  border-radius: 5rem;
+  color: var(--t-player-1-total-text);
+  display: block;
+  flex: 0 1 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: calc(var(--s-big) * -1);
+  padding: var(--s-small) var(--s-base);
+  user-select: none;
+  text-align: center;
+}

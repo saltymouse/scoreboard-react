@@ -1,0 +1,33 @@
+{
+  "name": "scoreboard-react",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "emoji.json": "^12.1.0",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-scripts": "3.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "backup": "echo '';echo $(pwd)'をバックアップする';echo '';NOW=$(date +%Y-%m-%d_%H%M%S);PRJT=`basename \"$(pwd)\"`;if [ -e node_modules ];then cd ..;tar cjv --totals --exclude ${PRJT}'/node_modules' -f $PRJT-$NOW.tar.bz2 $PRJT;find . -maxdepth 1 -name ${PRJT}'*' -type f -mtime +1 -delete;cd $PRJT;echo '';ls -lh ..|grep $PRJT-$NOW;else echo 'gitリポジトリではなさそう';fi"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

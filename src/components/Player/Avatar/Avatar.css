@@ -1,0 +1,23 @@
+.avatar {
+  align-items: center;
+  background-color: white;
+  border-radius: 100%;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 2.6rem;
+  height: 5rem;
+  justify-content: center;
+  padding-bottom: var(--s-small);
+  user-select: none;
+  width: 5rem;
+}
+
+/* iPhone 5/SE vertical height */
+@media (max-height: 568px) {
+  .avatar {
+    font-size: 2rem;
+    height: 4rem;
+    padding-bottom: var(--s-base);
+    width: 4rem;
+  }
+}

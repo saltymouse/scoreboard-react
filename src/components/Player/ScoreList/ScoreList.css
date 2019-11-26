@@ -1,0 +1,24 @@
+.score-list {
+  display: flex;
+  flex: 0 0 auto;
+  flex-flow: column-reverse nowrap;
+  margin: 0;
+  padding: 0 var(--s-base) var(--s-base);
+}
+
+.score-list__score {
+  color: var(--t-text-color);
+  list-style: none;
+  padding: var(--s-small);
+}
+
+.score-list__score:last-child {
+  font-weight: bold;
+}
+
+/* .score-list is visually reversed (column-reverse)
+    so the first visual item is actually the last
+    item in the list (hence :first-child below) */
+.score-list__score:not(:first-child) {
+  border-bottom: 1px solid var(--t-line-color);
+}
