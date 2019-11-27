@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f1bce0c8defe04ecae14822824319cd7",
+    "revision": "3eeea006c7ffc54784d5ef36094de513",
     "url": "/scoreboard-react/index.html"
   },
   {
-    "revision": "719dc398496110f424bf",
-    "url": "/scoreboard-react/static/css/main.37a683ff.chunk.css"
+    "revision": "53b00d6f67daeb431b16",
+    "url": "/scoreboard-react/static/css/main.92160baa.chunk.css"
   },
   {
-    "revision": "d939b44612a39397fb02",
-    "url": "/scoreboard-react/static/js/2.ee1ab196.chunk.js"
+    "revision": "7e958d5de3253b1f39bc",
+    "url": "/scoreboard-react/static/js/2.be6d0388.chunk.js"
   },
   {
-    "revision": "719dc398496110f424bf",
-    "url": "/scoreboard-react/static/js/main.c5e82562.chunk.js"
+    "revision": "53b00d6f67daeb431b16",
+    "url": "/scoreboard-react/static/js/main.13b9fd3e.chunk.js"
   },
   {
     "revision": "f6b646be7dc81d28cbec",
@@ -22,10 +22,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "10a5b071548379871a331ddae24e289f",
     "url": "/scoreboard-react/static/media/check.10a5b071.svg"
-  },
-  {
-    "revision": "fcd33b5c27a7f23a50e96dce05e8b58d",
-    "url": "/scoreboard-react/static/media/minus.fcd33b5c.svg"
   },
   {
     "revision": "7c6c8212afc5044e4b60f59552e57e69",
