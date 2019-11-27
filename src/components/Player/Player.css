@@ -103,10 +103,6 @@
   color: var(--t-player-1-highlight);
 }
 
-.player:nth-child(1) .score-input:not(.score-input--completed) {
-  background-color: var(--t-player-1-input);
-}
-
 /* Player 2 */
 .player:nth-child(2) {
   grid-area: player-2;
@@ -122,10 +118,6 @@
 
 .player:nth-child(2) .score-list__score:last-child {
   color: var(--t-player-2-highlight);
-}
-
-.player:nth-child(2) .score-input:not(.score-input--completed) {
-  background-color: var(--t-player-2-input);
 }
 
 /* Player 3 */
@@ -145,10 +137,6 @@
   color: var(--t-player-3-highlight);
 }
 
-.player:nth-child(3) .score-input:not(.score-input--completed) {
-  background-color: var(--t-player-3-input);
-}
-
 /* Player 4 */
 .player:nth-child(4) {
   grid-area: player-4;
@@ -164,8 +152,4 @@
 
 .player:nth-child(4) .score-list__score:last-child {
   color: var(--t-player-4-highlight);
-}
-
-.player:nth-child(4) .score-input:not(.score-input--completed) {
-  background-color: var(--t-player-4-input);
 }
