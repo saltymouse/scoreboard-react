@@ -3,7 +3,6 @@ import "./App.css";
 
 import randomEmoji from "./helpers/randomEmoji";
 import Player from "./components/Player/Player";
-import GameRoundButton from "./components/GameRoundButton/GameRoundButton";
 import ControlsTray from "./components/ControlsTray/ControlsTray";
 
 // For testing / filling dummy data
@@ -15,13 +14,12 @@ class App extends Component {
 
     this.state = {
       maxPlayers: 4,
-      players: [],
-      newRoundActive: false
+      players: []
     };
 
     this.getRandomUniqueAvatar = this.getRandomUniqueAvatar.bind(this);
     this.handleAvatarClick = this.handleAvatarClick.bind(this);
-    this.handleNewRoundClick = this.handleNewRoundClick.bind(this);
+    this.handleSubmitScoresClick = this.handleSubmitScoresClick.bind(this);
     this.handlePlayerNewScore = this.handlePlayerNewScore.bind(this);
     this.playerAddHandler = this.playerAddHandler.bind(this);
     this.playerRemoveHandler = this.playerRemoveHandler.bind(this);
@@ -55,22 +53,17 @@ class App extends Component {
     });
   }
 
-  handleNewRoundClick() {
-    // TODO: only allow if all scores are entered (no empty input!) DONE?
-    if (
-      this.state.newRoundActive &&
-      !this.state.players.some(player => player.newScore === null)
-    ) {
+  handleSubmitScoresClick() {
+    if (!this.state.players.some(player => player.newScore === "")) {
       const playersWithNewScores = this.state.players.map(player => {
         player.scores.push(player.newScore);
-        player.newScore = null;
+        player.newScore = "";
+
         return player;
       });
 
       this.setState({ players: [...playersWithNewScores] });
     }
-
-    this.setState({ newRoundActive: !this.state.newRoundActive });
   }
 
   handleAvatarClick(id) {
@@ -89,20 +82,23 @@ class App extends Component {
     this.setState({
       players: [...this.state.players, this.createNewPlayerObject()]
     });
-  
+
   removePlayer = () => {
-    const playersSansOne = this.state.players.splice(0, (this.state.players.length - 1));
+    const playersSansOne = this.state.players.splice(
+      0,
+      this.state.players.length - 1
+    );
 
     this.setState({
       players: [...playersSansOne]
     });
-  }
+  };
 
   createNewPlayerObject = () => ({
     id: Number(String(Math.random()).split(".")[1]).toString(16),
     scores: randomScores(10, 15),
     avatar: this.getRandomUniqueAvatar(),
-    newScore: null
+    newScore: ""
   });
 
   UNSAFE_componentWillMount() {
@@ -134,19 +130,12 @@ class App extends Component {
   render() {
     return (
       <div className="app" data-active-players={this.state.players.length}>
-        <GameRoundButton
-          players={this.state.players}
-          round={this.state.players[0].scores.length + 1}
-          onNewRoundClick={this.handleNewRoundClick}
-          newRoundActive={this.state.newRoundActive}
-        />
         <div className="players">
           {this.state.players.map(player => {
             return (
               <Player
                 key={player.id}
                 {...player}
-                newRoundActive={this.state.newRoundActive}
                 onAvatarClick={this.handleAvatarClick}
                 onNewScoreInput={this.handlePlayerNewScore}
                 total={player.scores.reduce((total, score) => total + score, 0)}
@@ -154,7 +143,14 @@ class App extends Component {
             );
           })}
         </div>
-        <ControlsTray onAddPlayer={this.playerAddHandler} onRemovePlayer={this.playerRemoveHandler} />
+        <ControlsTray
+          onAddPlayer={this.playerAddHandler}
+          onRemovePlayer={this.playerRemoveHandler}
+          players={this.state.players}
+          round={this.state.players[0].scores.length + 1}
+          onSubmitScoresClick={this.handleSubmitScoresClick}
+          newRoundActive={this.state.newRoundActive}
+        />
       </div>
     );
   }

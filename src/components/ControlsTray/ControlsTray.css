@@ -6,15 +6,43 @@
 }
 
 .controls-tray__button {
+  align-items: center;
   background: none;
   border: none;
   cursor: pointer;
+  display: flex;
+  flex-flow: column;
 }
 
+.controls-tray__button,
 .controls-tray__button svg {
   color: var(--t-icon-color);
 }
 
+.controls-tray__button:hover,
+.controls-tray__button:hover .controls-tray__round-icon,
 .controls-tray__button:hover svg {
   color: var(--c-blue-50);
+}
+
+.controls-tray__button:disabled:hover,
+.controls-tray__button:disabled:hover svg {
+  color: var(--t-icon-color);
+  cursor: default;
+}
+
+.controls-tray__button:disabled {
+  opacity: 0.4;
+}
+
+.controls-tray__round-icon {
+  align-items: center;
+  border: 2px dashed currentColor;
+  border-radius: var(--s-small);
+  display: flex;
+  height: 22px;
+  margin-bottom: 2px;
+  padding: 0 var(--s-base);
+  position: relative;
+  width: auto;
 }

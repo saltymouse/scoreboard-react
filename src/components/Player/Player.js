@@ -18,12 +18,11 @@ class Player extends Component {
           <ScoreTotal total={this.props.total} />
         </div>
         <div className="player__body">
-          {this.props.newRoundActive && (
-            <ScoreInput
-              onNewScoreInput={this.props.onNewScoreInput}
-              id={this.props.id}
-            />
-          )}
+          <ScoreInput
+            onNewScoreInput={this.props.onNewScoreInput}
+            id={this.props.id}
+            newValue={this.props.newScore}
+          />
           <ScoreList scores={this.props.scores} />
         </div>
       </div>
