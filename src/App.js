@@ -42,7 +42,7 @@ class App extends Component {
   handlePlayerNewScore(id, score) {
     const players = this.state.players.map(player => {
       if (player.id === id) {
-        player.newScore = score;
+        player.newScore = Number(score);
       }
 
       return player;
