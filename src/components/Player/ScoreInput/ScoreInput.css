@@ -26,7 +26,7 @@
   border-bottom-left-radius: var(--s-small);
   border-top-left-radius: var(--s-small);
   display: flex;
-  color: var(--c-neutral-50);
+  color: var(--t-text-color);
   font-weight: bold;
   font-size: 1.2rem;
   height: 100%;

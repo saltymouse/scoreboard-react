@@ -6,16 +6,15 @@ import { ReactComponent as CheckIcon } from "feather-icons/dist/icons/check.svg"
 class ScoreInput extends Component {
   constructor() {
     super();
-    this.state = {
-      inputValue: ""
-    };
     this.handleScoreChange = this.handleScoreChange.bind(this);
     this.handleValueChange = this.handleValueChange.bind(this);
   }
 
   handleValueChange(event) {
-    this.setState({ inputValue: Number(event.target.value) });
-    this.handleScoreChange(this.props.id, Number(event.target.value));
+    const inputValue = event.target.value;
+    if (!isNaN(Number(inputValue)) || inputValue === "") {
+      this.handleScoreChange(this.props.id, inputValue);
+    }
   }
 
   handleScoreChange(id, score) {
@@ -23,11 +22,10 @@ class ScoreInput extends Component {
   }
 
   render() {
-    console.log(this.state.inputValue && <CheckIcon />);
     return (
       <div
         className={
-          this.state.inputValue !== ""
+          this.props.newValue !== ""
             ? "score-input score-input--completed"
             : "score-input"
         }
@@ -35,13 +33,12 @@ class ScoreInput extends Component {
         <input
           className="score-input__field"
           type="number"
-          pattern="\d*"
           placeholder="Score?"
-          value={this.state.inputValue}
+          value={this.props.newValue}
           onChange={this.handleValueChange}
         />
         <div className="score-input__indicator">
-          {this.state.inputValue !== "" && <CheckIcon />}
+          {this.props.newValue !== "" && <CheckIcon />}
         </div>
       </div>
     );
