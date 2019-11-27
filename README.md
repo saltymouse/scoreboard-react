@@ -30,7 +30,7 @@
 
 | ![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Opera](https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png) |
 | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- |
-| Latest ✔                                                                                            | Latest ✔                                                                                               | 10+ ✔                                                                                       | Latest ✔                                                                                         | 13+ iOS ✔                                                                                                   |
+| Latest ✔                                                                                            | Latest ✔                                                                                               | 10+ ✔                                                                                       | Latest ✔                                                                                         | iOS 12+ ✔                                                                                                   |
 
 ## Development 💻
 
@@ -39,8 +39,13 @@
 
 ## Todo 🧩
 
-- Reset scores
+- ~~Limit emoji version scope for old devices~~
+- ~~Improve controls~~
+  - ~~Grey-out deactivated buttons~~
+  - ~~Move "New Round" button with other buttons~~
+- ~~Improve input flow on mobile~~
+- Reset all scores button
 - Remove/Edit scores
+- Localization
+- Testing
 - Offline
-- Accessibility tests
-- Code tests
