@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "de43f4b818180a612f20ca6a8310beab",
+    "revision": "08bb8b161d7a945c418cb096a14d2031",
     "url": "/scoreboard-react/index.html"
   },
   {
-    "revision": "fb78ced9f63733eb9ec8",
+    "revision": "9dfdf0e06316076adfcc",
     "url": "/scoreboard-react/static/css/main.92160baa.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/scoreboard-react/static/js/2.be6d0388.chunk.js"
   },
   {
-    "revision": "fb78ced9f63733eb9ec8",
-    "url": "/scoreboard-react/static/js/main.0d6eec4e.chunk.js"
+    "revision": "9dfdf0e06316076adfcc",
+    "url": "/scoreboard-react/static/js/main.31de9077.chunk.js"
   },
   {
     "revision": "f6b646be7dc81d28cbec",
