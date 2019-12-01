@@ -19,18 +19,22 @@ class App extends Component {
 
     this.handleAvatarClick = this.handleAvatarClick.bind(this);
     this.handleSubmitScoresClick = this.handleSubmitScoresClick.bind(this);
-    this.handlePlayerNewScore = this.handlePlayerNewScore.bind(this);
+    this.handlePlayerNewScoreInput = this.handlePlayerNewScoreInput.bind(this);
     this.playerAddHandler = this.playerAddHandler.bind(this);
     this.playerRemoveHandler = this.playerRemoveHandler.bind(this);
   }
-
-  handlePlayerNewScore(id, score) {
+  /**
+   * Set input values from input field to respective player's newScore state object
+   * @param {String} id - unique identifying string for player
+   * @param {String} score - number or empty string (to blank input field)
+   */
+  handlePlayerNewScoreInput(id, score) {
     const players = this.state.players.map(player => {
       if (player.id === id) {
-        if (typeof score === "number") {
-          player.newScore = Number(score);
-        } else {
+        if (score === "") {
           player.newScore = score;
+        } else if (typeof Number(score) === "number") {
+          player.newScore = Number(score);
         }
       }
 
@@ -154,7 +158,7 @@ class App extends Component {
                 key={player.id}
                 {...player}
                 onAvatarClick={this.handleAvatarClick}
-                onNewScoreInput={this.handlePlayerNewScore}
+                onNewScoreInput={this.handlePlayerNewScoreInput}
                 total={player.scores.reduce((total, score) => total + score, 0)}
               />
             );
