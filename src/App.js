@@ -17,26 +17,11 @@ class App extends Component {
       players: []
     };
 
-    this.getRandomUniqueAvatar = this.getRandomUniqueAvatar.bind(this);
     this.handleAvatarClick = this.handleAvatarClick.bind(this);
     this.handleSubmitScoresClick = this.handleSubmitScoresClick.bind(this);
     this.handlePlayerNewScore = this.handlePlayerNewScore.bind(this);
     this.playerAddHandler = this.playerAddHandler.bind(this);
     this.playerRemoveHandler = this.playerRemoveHandler.bind(this);
-  }
-
-  getRandomUniqueAvatar() {
-    let newRandomEmoji = randomEmoji();
-
-    const emojiIsUsed = this.state.players.some(
-      ({ avatar }) => avatar === newRandomEmoji
-    );
-
-    if (!emojiIsUsed) {
-      return newRandomEmoji;
-    }
-
-    this.getRandomUniqueAvatar();
   }
 
   handlePlayerNewScore(id, score) {
@@ -70,16 +55,40 @@ class App extends Component {
     }
   }
 
-  handleAvatarClick(id) {
-    const players = this.state.players.map(player => {
-      if (player.id === id) {
-        player.avatar = this.getRandomUniqueAvatar();
-      }
+  /**
+   * Sets specified player's avatar to a new random & unique emoji
+   * @param {String} id - unique identifying string for player
+   * @param {Boolean} stateful=true - if handler should set state or output emoji object directly
+   */
+  handleAvatarClick(id, stateful = true) {
+    let newRandomEmoji = randomEmoji();
 
-      return player;
-    });
+    const emojisCurrentlyInUse = this.state.players.map(
+      player => player.avatar.emoji
+    );
 
-    this.setState({ players });
+    const notUnique = () =>
+      emojisCurrentlyInUse.some(
+        usedEmoji => usedEmoji === newRandomEmoji.emoji
+      );
+
+    while (notUnique()) {
+      newRandomEmoji = randomEmoji();
+    }
+
+    if (stateful) {
+      const players = this.state.players.map(player => {
+        if (player.id === id) {
+          player.avatar = newRandomEmoji;
+        }
+
+        return player;
+      });
+
+      this.setState({ players });
+    } else {
+      return newRandomEmoji;
+    }
   }
 
   addPlayer = () =>
@@ -98,15 +107,19 @@ class App extends Component {
     });
   };
 
-  createNewPlayerObject = () => ({
-    id: Number(String(Math.random()).split(".")[1]).toString(16),
-    scores: randomScores(10, 15),
-    avatar: this.getRandomUniqueAvatar(),
-    newScore: ""
-  });
+  createNewPlayerObject() {
+    const id = Number(String(Math.random()).split(".")[1]).toString(16);
+    this.handleAvatarClick(id);
+    return {
+      id,
+      scores: randomScores(10, 15),
+      newScore: "",
+      avatar: this.handleAvatarClick(id, false)
+    };
+  }
 
   UNSAFE_componentWillMount() {
-    const playersArray = [{}, {}, {}].map(player =>
+    const playersArray = [{}, {}, {}, {}].map(player =>
       this.createNewPlayerObject()
     );
 
