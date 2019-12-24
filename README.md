@@ -6,25 +6,39 @@
 
 [https://saltymouse.github.io/scoreboard-react](https://saltymouse.github.io/scoreboard-react)
 
+![Scoreboard (mobile size, showing dark/light mode)](/public/darkmode-mobile.png?raw=true "Scoreboard with darkmode!")
+
 ## How To Use 🀄️
 
-1. Click/tap the _Remove Player_ (👤➖) or _Add Player_ (👤➕) buttons (bottom of the screen) to match the number of players with you (1 to 4).
-2. Click/tap the emoji on each player to find your spirit animal.
-3. When the round is over and everyone needs to enter a score, hit the (➕) button.
-   - Enter the score for each player in their respective field.
-   - When all players have entered a score, the (➕) button will change to a (✔️) — click this to submit everyone's scores and move to the next round.
+### Adding & Removing Players
 
-## Features 🪀
+- Click/tap the _Remove Player_ (👤➖) or _Add Player_ (👤➕) buttons (bottom of the screen) to match the number of players in your game (1 to 4).
 
-| Technique         | Reference                                                                                                     | Preview |
-| :---------------- | :------------------------------------------------------------------------------------------------------------ | :------ |
-| Emoji-based icons | [Emojipedia](https://emojipedia.org/nature/)                                                                  |
-| Responsive design | [media-queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries)           |
-| Grid layouts      | [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout)    |
-| Flexible content  | [Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox) |
-| Variables         | [Custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)             |
-| Dark mode         | [prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme)          |
-| SVG Icons         | [Feather Icons](https://feathericons.com/)                                                                    |
+### Change Your Emoji 🦁
+
+- Click/tap the emoji on each player to select a new random emoji.
+
+### Adding Scores ➕
+
+- Click/tap _Add Scores_ (➕) after entering all player's scores.
+  - The _Add Scores_ (➕) icon will change to a (✔️) signifying the scores are ready to submit.
+
+### Removing Scores ➖
+
+1. From the score-list, click/tap on the score you wish to remove.
+   - _Scores from the same round in other players will be highlighted._
+2. Click/tap the _Remove Scores_ (➖) button.
+
+### Editing Scores ✔️
+
+1. From the score-list, click/tap on the score you wish to remove.
+2. Adjust the selected scores in the players' input fields.
+3. Click/tap _Add Scores_ (✔️) to submit score changes.
+
+## Tech Specs 🪀
+
+- Mobile-first responsive design
+- Dark mode (auto-detected from you OS settings)
 
 ## Browser Support 🕸
 
@@ -39,13 +53,8 @@
 
 ## Todo 🧩
 
-- ~~Limit emoji version scope for old devices~~
-- ~~Improve controls~~
-  - ~~Grey-out deactivated buttons~~
-  - ~~Move "New Round" button with other buttons~~
-- ~~Improve input flow on mobile~~
-- Reset all scores button
-- Remove/Edit scores
-- Localization
-- Testing
-- Offline
+- [x] Edit/Remove Scores
+- [ ] Localization
+- [ ] Accessibility
+- [ ] Testing
+- [ ] Offline
