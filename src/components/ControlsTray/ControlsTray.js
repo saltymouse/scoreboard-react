@@ -4,11 +4,19 @@ import { ReactComponent as PlayerAddIcon } from "feather-icons/dist/icons/user-p
 import { ReactComponent as PlayerRemoveIcon } from "feather-icons/dist/icons/user-minus.svg";
 import { ReactComponent as CheckIcon } from "feather-icons/dist/icons/check.svg";
 import { ReactComponent as PlusIcon } from "feather-icons/dist/icons/plus.svg";
+import { ReactComponent as MinusIcon } from "feather-icons/dist/icons/minus.svg";
 
 class ControlsTray extends React.Component {
-  playerInputNotComplete() {
-    return this.props.players.some(player => player.newScore === "");
-  }
+  playerInputComplete = () =>
+    this.props.players.every(
+      player =>
+        player.newScore.hasOwnProperty("score") && player.newScore.score !== ""
+    );
+
+  scoreEditActive = () =>
+    this.props.players.every(({ scores }) =>
+      scores.some(({ active }) => active)
+    );
 
   render() {
     return (
@@ -17,7 +25,7 @@ class ControlsTray extends React.Component {
           aria-label="Remove Player"
           title="Remove Player"
           className="controls-tray__button"
-          onClick={this.props.onRemovePlayer}
+          onClick={this.props.onRemovePlayerClick}
           disabled={this.props.players.length <= 1}
         >
           <PlayerRemoveIcon />
@@ -25,31 +33,42 @@ class ControlsTray extends React.Component {
         </button>
 
         <button
-          aria-label="Round Number"
-          title={`Round Number: ${this.props.round}`}
+          aria-label="Remove Scores"
+          title="Remove Scores"
           className="controls-tray__button"
+          onClick={this.props.onRemoveScoresClick}
+          disabled={!this.scoreEditActive()}
         >
-          <div className="controls-tray__round-icon">{this.props.round}</div>
-          <span className="controls-tray__label">Round Number</span>
+          <MinusIcon />
+          <span className="controls-tray__label">Remove Scores</span>
         </button>
 
         <button
-          aria-label="Submit Scores"
-          title="Submit Scores"
+          aria-label="Current Round"
+          title={`Current Round: ${this.props.round}`}
           className="controls-tray__button"
-          onClick={this.props.onSubmitScoresClick}
-          disabled={this.playerInputNotComplete()}
         >
-          {this.playerInputNotComplete() ? <PlusIcon /> : <CheckIcon />}
-          <span className="controls-tray__label">Submit Scores</span>
+          <div className="controls-tray__round-icon">{this.props.round}</div>
+          <span className="controls-tray__label">Current Round</span>
+        </button>
+
+        <button
+          aria-label="Add Scores"
+          title="Add Scores"
+          className="controls-tray__button"
+          onClick={this.props.onAddScoresClick}
+          disabled={!this.playerInputComplete()}
+        >
+          {this.playerInputComplete() ? <CheckIcon /> : <PlusIcon />}
+          <span className="controls-tray__label">Add Scores</span>
         </button>
 
         <button
           aria-label="Add Player"
           title="Add Player"
           className="controls-tray__button"
-          onClick={this.props.onAddPlayer}
-          disabled={this.props.players.length >= 4}
+          onClick={this.props.onAddPlayerClick}
+          disabled={this.props.players.length >= this.props.maxPlayers}
         >
           <PlayerAddIcon />
           <span className="controls-tray__label">Add Player</span>

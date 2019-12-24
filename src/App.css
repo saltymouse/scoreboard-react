@@ -6,25 +6,35 @@
   --s-base: 0.56rem;
   --s-big: 1.22rem;
   /* Colors */
+  /* Orange */
   --c-orange-90: #c77e08;
   --c-orange-50: #e79d26;
-  --c-orange-10: #ffdea7;
+  --c-orange-30: #ffd794;
+  --c-orange-20: #ffdea7;
+  --c-orange-10: #fff3df;
+  /* Purple */
   --c-purple-90: #5907a1;
   --c-purple-50: #9013fe;
   --c-purple-10: #d7abff;
+  /* Blue */
   --c-blue-90: #185091;
   --c-blue-50: #4a90e2;
   --c-blue-10: #a2cdff;
+  /* Green */
   --c-green-90: #437c14;
   --c-green-50: #7ed321;
   --c-green-10: #d2f1b3;
+  /* Neutral */
   --c-neutral-90: rgb(51, 51, 51);
   --c-neutral-80: rgb(73, 73, 73);
-  --c-neutral-70: rgb(102, 102, 102);
-  --c-neutral-60: rgb(117, 117, 117);
-  --c-neutral-50: #aaa;
-  --c-neutral-20: rgb(226, 226, 226);
-  --c-neutral-10: #ececec;
+  --c-neutral-70: #626262;
+  --c-neutral-60: #8c8c8c;
+  --c-neutral-50: #afafaf;
+  --c-neutral-40: #d9d9d9;
+  --c-neutral-30: #eaeaea;
+  --c-neutral-20: #ececec;
+  --c-neutral-10: #f9f9f9;
+  /* BW */
   --c-white: #fcfcfc;
   --c-black: #202020;
   /* Theming */
@@ -71,9 +81,9 @@
     --t-shadow-color: rgba(235, 224, 224, 0.14);
     /* Player 1 */
     --t-player-1-title: var(--c-orange-90);
-    --t-player-1-total: var(--c-orange-10);
+    --t-player-1-total: var(--c-orange-20);
     --t-player-1-total-text: var(--c-black);
-    --t-player-1-highlight: var(--c-orange-10);
+    --t-player-1-highlight: var(--c-orange-20);
     --t-player-1-input: var(--c-orange-50);
     /* Player 2 */
     --t-player-2-title: var(--c-blue-90);

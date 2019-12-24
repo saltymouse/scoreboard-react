@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import uniqueId from "../../../helpers/uniqueId";
 import "./ScoreInput.css";
 
 import { ReactComponent as CheckIcon } from "feather-icons/dist/icons/check.svg";
@@ -17,8 +18,14 @@ class ScoreInput extends Component {
     }
   }
 
-  handleScoreChange(id, score) {
-    this.props.onNewScoreInput(id, score);
+  handleScoreChange(playerId, rawScoreValue) {
+    const newScoreValue = { score: rawScoreValue };
+    if (!this.props.newValue.hasOwnProperty("id")) {
+      newScoreValue.id = uniqueId();
+    } else {
+      newScoreValue.id = this.props.newValue.id;
+    }
+    this.props.onNewScoreInput(playerId, newScoreValue);
   }
 
   render() {
@@ -34,11 +41,17 @@ class ScoreInput extends Component {
           className="score-input__field"
           type="number"
           placeholder="Score?"
-          value={this.props.newValue}
+          value={
+            this.props.newValue.hasOwnProperty("score") &&
+            this.props.newValue.score !== ""
+              ? this.props.newValue.score
+              : ""
+          }
           onChange={this.handleValueChange}
         />
         <div className="score-input__indicator">
-          {this.props.newValue !== "" && <CheckIcon />}
+          {this.props.newValue.hasOwnProperty("score") &&
+            this.props.newValue.score !== "" && <CheckIcon />}
         </div>
       </div>
     );

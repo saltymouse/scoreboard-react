@@ -5,6 +5,7 @@ import randomEmoji from "./helpers/randomEmoji";
 import Player from "./components/Player/Player";
 import ControlsTray from "./components/ControlsTray/ControlsTray";
 
+import uniqueId from "./helpers/uniqueId";
 // For testing / filling dummy data
 import randomScores from "./helpers/randomScores";
 
@@ -18,23 +19,56 @@ class App extends Component {
     };
 
     this.handleAvatarClick = this.handleAvatarClick.bind(this);
-    this.handleSubmitScoresClick = this.handleSubmitScoresClick.bind(this);
+    this.handleAddScoresClick = this.handleAddScoresClick.bind(this);
+    this.handleRemoveScoresClick = this.handleRemoveScoresClick.bind(this);
     this.handlePlayerNewScoreInput = this.handlePlayerNewScoreInput.bind(this);
-    this.playerAddHandler = this.playerAddHandler.bind(this);
-    this.playerRemoveHandler = this.playerRemoveHandler.bind(this);
+    this.handleAddPlayerClick = this.handleAddPlayerClick.bind(this);
+    this.handleRemovePlayerClick = this.handleRemovePlayerClick.bind(this);
+    this.handleScoreEditClick = this.handleScoreEditClick.bind(this);
   }
+
+  /**
+   * Set previous round of score editable in input fields
+   * @param {String} playerId - unique identifying string for player
+   * @param {String} scoreId - unique identifying string for score item
+   */
+  handleScoreEditClick(playerId, scoreId) {
+    const selectedPlayerIndex = this.state.players.findIndex(
+      player => player.id === playerId
+    );
+
+    const selectedScoreIndex = this.state.players[
+      selectedPlayerIndex
+    ].scores.findIndex(score => score.id === scoreId);
+
+    const playersWithEditedScores = this.state.players.map(player => {
+      player.newScore = player.scores[selectedScoreIndex];
+
+      player.scores.forEach(
+        (score, index) => (score.active = index === selectedScoreIndex)
+      );
+
+      return player;
+    });
+
+    this.setState({ players: playersWithEditedScores });
+  }
+
   /**
    * Set input values from input field to respective player's newScore state object
-   * @param {String} id - unique identifying string for player
-   * @param {String} score - number or empty string (to blank input field)
+   * @param {String} playerId - unique identifying string for player
+   * @param {Object} scoreItem - score with unique id
+   * @param {Number} scoreItem.score - score
+   * @param {String} scoreItem.id - unique identifying string for score
    */
-  handlePlayerNewScoreInput(id, score) {
+  handlePlayerNewScoreInput(playerId, scoreItem) {
     const players = this.state.players.map(player => {
-      if (player.id === id) {
-        if (score === "") {
-          player.newScore = score;
-        } else if (typeof Number(score) === "number") {
-          player.newScore = Number(score);
+      if (player.id === playerId) {
+        if (scoreItem.score === "") {
+          player.newScore.score = "";
+        } else if (typeof Number(scoreItem.score) === "number") {
+          player.newScore.score = Number(scoreItem.score);
+          player.newScore.id = scoreItem.id;
         }
       }
 
@@ -46,16 +80,51 @@ class App extends Component {
     });
   }
 
-  handleSubmitScoresClick() {
-    if (!this.state.players.some(player => player.newScore === "")) {
+  /**
+   * Removes currently activated scores from players' `scores` array
+   */
+  handleRemoveScoresClick() {
+    const playersSansActiveScores = this.state.players.map(player => ({
+      ...player,
+      scores: player.scores.filter(({ active }) => !active),
+      newScore: {}
+    }));
+
+    this.setState({ players: playersSansActiveScores });
+  }
+
+  /**
+   * Adds players' current input to respective player's `scores` array
+   */
+  handleAddScoresClick() {
+    // ensure all players have inputted a score before allowing submit
+    if (
+      this.state.players.every(
+        player =>
+          player.newScore.hasOwnProperty("score") &&
+          player.newScore.score !== ""
+      )
+    ) {
       const playersWithNewScores = this.state.players.map(player => {
-        player.scores.push(player.newScore);
-        player.newScore = "";
+        if (
+          player.scores.some(
+            score =>
+              score.hasOwnProperty("id") && score.id === player.newScore.id
+          )
+        ) {
+          // blank inputs and de-activate scores
+          player.newScore = {};
+          player.scores.forEach(score => (score.active = false));
+        } else {
+          player.newScore.id = uniqueId();
+          player.scores.push(player.newScore);
+          player.newScore = {};
+        }
 
         return player;
       });
 
-      this.setState({ players: [...playersWithNewScores] });
+      this.setState({ players: playersWithNewScores });
     }
   }
 
@@ -64,7 +133,7 @@ class App extends Component {
    * @param {String} id - unique identifying string for player
    * @param {Boolean} stateful=true - if handler should set state or output emoji object directly
    */
-  handleAvatarClick(id, stateful = true) {
+  handleAvatarClick(playerId, stateful = true) {
     let newRandomEmoji = randomEmoji();
 
     const emojisCurrentlyInUse = this.state.players.map(
@@ -76,13 +145,15 @@ class App extends Component {
         usedEmoji => usedEmoji === newRandomEmoji.emoji
       );
 
+    // keep generating new values until unique
     while (notUnique()) {
       newRandomEmoji = randomEmoji();
     }
 
+    // TODO: the output of this function shouldn't be "switchable" from stateful to output
     if (stateful) {
       const players = this.state.players.map(player => {
-        if (player.id === id) {
+        if (player.id === playerId) {
           player.avatar = newRandomEmoji;
         }
 
@@ -95,11 +166,17 @@ class App extends Component {
     }
   }
 
+  /**
+   * Adds a new initialized player to board
+   */
   addPlayer = () =>
     this.setState({
       players: [...this.state.players, this.createNewPlayerObject()]
     });
 
+  /**
+   * Removes last player on board
+   */
   removePlayer = () => {
     const playersSansOne = this.state.players.splice(
       0,
@@ -107,18 +184,25 @@ class App extends Component {
     );
 
     this.setState({
-      players: [...playersSansOne]
+      players: playersSansOne
     });
   };
 
+  /**
+   * Intantiates player object
+   */
   createNewPlayerObject() {
-    const id = Number(String(Math.random()).split(".")[1]).toString(16);
-    this.handleAvatarClick(id);
+    const playerId = uniqueId();
+    const scoreQuantity = this.state.players[0]
+      ? this.state.players[0].scores.length
+      : 5;
+    const scoreLimit = this.state.players[0] ? 1 : 10;
+    this.handleAvatarClick(playerId);
     return {
-      id,
-      scores: randomScores(10, 15),
-      newScore: "",
-      avatar: this.handleAvatarClick(id, false)
+      id: playerId,
+      scores: randomScores(scoreQuantity, scoreLimit),
+      newScore: {},
+      avatar: this.handleAvatarClick(playerId, false)
     };
   }
 
@@ -130,7 +214,7 @@ class App extends Component {
     this.setState({ players: playersArray });
   }
 
-  playerAddHandler() {
+  handleAddPlayerClick() {
     const currentNumberOfPlayers = this.state.players.length;
     const maxReached = currentNumberOfPlayers >= this.state.maxPlayers;
 
@@ -139,7 +223,7 @@ class App extends Component {
     }
   }
 
-  playerRemoveHandler() {
+  handleRemovePlayerClick() {
     const currentNumberOfPlayers = this.state.players.length;
     const minReached = currentNumberOfPlayers <= 1;
 
@@ -159,18 +243,26 @@ class App extends Component {
                 {...player}
                 onAvatarClick={this.handleAvatarClick}
                 onNewScoreInput={this.handlePlayerNewScoreInput}
-                total={player.scores.reduce((total, score) => total + score, 0)}
+                onScoreEdit={this.handleScoreEditClick}
+                total={player.scores.reduce(
+                  (total, { score }) => total + Number(score),
+                  0
+                )}
+                editScores={this.state.editScores}
               />
             );
           })}
         </div>
+
         <ControlsTray
-          onAddPlayer={this.playerAddHandler}
-          onRemovePlayer={this.playerRemoveHandler}
+          onAddPlayerClick={this.handleAddPlayerClick}
+          onRemovePlayerClick={this.handleRemovePlayerClick}
           players={this.state.players}
-          round={this.state.players[0].scores.length + 1}
-          onSubmitScoresClick={this.handleSubmitScoresClick}
+          round={this.state.players[0].scores.length}
+          onAddScoresClick={this.handleAddScoresClick}
+          onRemoveScoresClick={this.handleRemoveScoresClick}
           newRoundActive={this.state.newRoundActive}
+          maxPlayers={this.props.maxPlayers}
         />
       </div>
     );

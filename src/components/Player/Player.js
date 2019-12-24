@@ -23,7 +23,11 @@ class Player extends Component {
             id={this.props.id}
             newValue={this.props.newScore}
           />
-          <ScoreList scores={this.props.scores} />
+          <ScoreList
+            playerId={this.props.id}
+            scores={this.props.scores}
+            onScoreEdit={this.props.onScoreEdit}
+          />
         </div>
       </div>
     );

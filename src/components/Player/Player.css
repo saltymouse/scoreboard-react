@@ -99,7 +99,7 @@
   background-color: var(--t-player-1-total);
 }
 
-.player:nth-child(1) .score-list__score:last-child {
+.player:nth-child(1) .score-list__score--active {
   color: var(--t-player-1-highlight);
 }
 
@@ -116,7 +116,7 @@
   background-color: var(--t-player-2-total);
 }
 
-.player:nth-child(2) .score-list__score:last-child {
+.player:nth-child(2) .score-list__score--active {
   color: var(--t-player-2-highlight);
 }
 
@@ -133,7 +133,7 @@
   background-color: var(--t-player-3-total);
 }
 
-.player:nth-child(3) .score-list__score:last-child {
+.player:nth-child(3) .score-list__score--active {
   color: var(--t-player-3-highlight);
 }
 
@@ -150,6 +150,6 @@
   background-color: var(--t-player-4-title);
 }
 
-.player:nth-child(4) .score-list__score:last-child {
+.player:nth-child(4) .score-list__score--active {
   color: var(--t-player-4-highlight);
 }

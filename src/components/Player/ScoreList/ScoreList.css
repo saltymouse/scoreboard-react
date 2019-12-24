@@ -8,11 +8,12 @@
 
 .score-list__score {
   color: var(--t-text-color);
+  cursor: pointer;
   list-style: none;
-  padding: var(--s-small);
+  padding: var(--s-base);
 }
 
-.score-list__score:last-child {
+.score-list__score--active {
   font-weight: bold;
 }
 
