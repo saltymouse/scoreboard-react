@@ -19,20 +19,12 @@
   color: var(--t-icon-color);
 }
 
-.controls-tray__button:hover,
-.controls-tray__button:hover .controls-tray__round-icon,
-.controls-tray__button:hover svg {
-  color: var(--c-blue-50);
-}
-
-.controls-tray__button:disabled:hover,
-.controls-tray__button:disabled:hover svg {
-  color: var(--t-icon-color);
-  cursor: default;
-}
-
 .controls-tray__button:disabled {
   opacity: 0.4;
+}
+
+.controls-tray__button--display:disabled {
+  opacity: 1;
 }
 
 .controls-tray__round-icon {
@@ -45,4 +37,23 @@
   padding: 0 var(--s-base);
   position: relative;
   width: auto;
+}
+
+/* :hover is for desktops only */
+@media (min-width: 992px) {
+  .controls-tray__button:hover,
+  .controls-tray__button:hover .controls-tray__round-icon,
+  .controls-tray__button:hover svg {
+    color: var(--c-blue-50);
+  }
+
+  .controls-tray__button:disabled:hover,
+  .controls-tray__button:disabled:hover svg {
+    color: var(--t-icon-color);
+    cursor: default;
+  }
+
+  .controls-tray__button--display:hover .controls-tray__round-icon {
+    color: var(--t-icon-color);
+  }
 }
