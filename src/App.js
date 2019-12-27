@@ -262,7 +262,7 @@ class App extends Component {
           onAddScoresClick={this.handleAddScoresClick}
           onRemoveScoresClick={this.handleRemoveScoresClick}
           newRoundActive={this.state.newRoundActive}
-          maxPlayers={this.props.maxPlayers}
+          maxPlayers={this.state.maxPlayers}
         />
       </div>
     );
