@@ -3,6 +3,14 @@
   display: flex;
   grid-area: controls;
   justify-content: space-around;
+  padding: var(--s-base) 0 0;
+}
+
+/* desktop needs more padding for proportional balance */
+@media (min-width: 992px) {
+  .controls-tray {
+    padding: var(--s-small) 0 var(--s-base);
+  }
 }
 
 .controls-tray__button {

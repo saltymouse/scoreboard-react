@@ -8,7 +8,17 @@
   grid-template-rows: 1fr 1fr;
   grid-template-areas: "player-1 player-2" "player-3 player-4";
   overflow: hidden;
-  padding: var(--s-base);
+  padding: var(
+    --s-small
+  ); /* requires padding here so drop-shadow doesn't clip */
+}
+
+/* desktop needs more padding for proportional balance */
+@media (min-width: 992px) {
+  .players {
+    gap: var(--s-big);
+    padding: var(--s-big);
+  }
 }
 
 [data-active-players="1"] .players {

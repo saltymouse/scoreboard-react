@@ -47,7 +47,7 @@ class ControlsTray extends React.Component {
           aria-label="Current Round"
           title={`Current Round: ${this.props.round}`}
           className="controls-tray__button controls-tray__button--display"
-          disabled="true"
+          disabled={true}
         >
           <div className="controls-tray__round-icon">{this.props.round}</div>
           <span className="controls-tray__label">Current Round</span>

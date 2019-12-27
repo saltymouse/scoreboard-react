@@ -4,7 +4,7 @@
   /* Spacing / Sizing */
   --s-small: 0.16rem;
   --s-base: 0.56rem;
-  --s-big: 1.22rem;
+  --s-big: 1.24rem;
   /* Colors */
   /* Orange */
   --c-orange-90: #c77e08;
@@ -114,4 +114,8 @@
   padding: var(--s-base);
   position: relative;
   text-align: center;
+}
+
+/* desktop needs more padding for proportional balance */
+@media (min-width: 992px) {
 }
