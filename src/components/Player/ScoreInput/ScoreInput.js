@@ -45,7 +45,7 @@ class ScoreInput extends Component {
           className="score-input__field"
           id={`score-input__field${this.props.playerId}`}
           type="text"
-          pattern="\d+"
+          pattern="^-?\d+"
           placeholder="Score?"
           value={
             this.props.newValue.hasOwnProperty("score") &&
