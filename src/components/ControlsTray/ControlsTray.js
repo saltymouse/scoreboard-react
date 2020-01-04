@@ -9,8 +9,7 @@ import { ReactComponent as MinusIcon } from "feather-icons/dist/icons/minus.svg"
 class ControlsTray extends React.Component {
   playerInputComplete = () =>
     this.props.players.every(
-      player =>
-        player.newScore.hasOwnProperty("score") && player.newScore.score !== ""
+      player => player.newScore.hasOwnProperty("valid") && player.newScore.valid
     );
 
   scoreEditActive = () =>

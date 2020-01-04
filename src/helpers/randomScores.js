@@ -10,7 +10,8 @@ function getRandomScores(scoreQuantity = 5, limit = 100) {
     new Array(scoreQuantity) // new array of given length
   ).map(() => ({
     id: uniqueId(),
-    score: Math.floor(Math.random() * limit)
+    score: Math.floor(Math.random() * limit),
+    valid: true
   })); // return new array with random numbers
 }
 

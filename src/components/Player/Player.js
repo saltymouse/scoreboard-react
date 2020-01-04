@@ -20,7 +20,7 @@ class Player extends Component {
         <div className="player__body">
           <ScoreInput
             onNewScoreInput={this.props.onNewScoreInput}
-            id={this.props.id}
+            playerId={this.props.id}
             newValue={this.props.newScore}
           />
           <ScoreList

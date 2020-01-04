@@ -58,18 +58,15 @@ class App extends Component {
    * Set input values from input field to respective player's newScore state object
    * @param {String} playerId - unique identifying string for player
    * @param {Object} scoreItem - score with unique id
-   * @param {Number} scoreItem.score - score
+   * @param {String} scoreItem.score - score
    * @param {String} scoreItem.id - unique identifying string for score
    */
   handlePlayerNewScoreInput(playerId, scoreItem) {
     const players = this.state.players.map(player => {
       if (player.id === playerId) {
-        if (scoreItem.score === "") {
-          player.newScore.score = "";
-        } else if (typeof Number(scoreItem.score) === "number") {
-          player.newScore.score = Number(scoreItem.score);
-          player.newScore.id = scoreItem.id;
-        }
+        player.newScore.score = scoreItem.score;
+        player.newScore.id = scoreItem.id;
+        player.newScore.valid = scoreItem.valid;
       }
 
       return player;
@@ -244,10 +241,9 @@ class App extends Component {
                 onAvatarClick={this.handleAvatarClick}
                 onNewScoreInput={this.handlePlayerNewScoreInput}
                 onScoreEdit={this.handleScoreEditClick}
-                total={player.scores.reduce(
-                  (total, { score }) => total + Number(score),
-                  0
-                )}
+                total={player.scores
+                  .filter(({ score }) => Number(score)) // no NaN!
+                  .reduce((total, { score }) => total + Number(score), 0)}
                 editScores={this.state.editScores}
               />
             );

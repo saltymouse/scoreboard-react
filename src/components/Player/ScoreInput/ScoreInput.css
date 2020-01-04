@@ -1,5 +1,5 @@
 .score-input {
-  background-color: var(--t-background-color);
+  background-color: var(--t-input-background);
   border-radius: var(--s-small);
   position: relative;
 }
@@ -9,7 +9,8 @@
   border: none;
   color: var(--t-text-color);
   font-size: 1.1rem;
-  margin: var(--s-base) 0;
+  height: 100%;
+  padding: var(--s-base) 0;
   text-align: center;
   width: 100%;
 }
@@ -27,8 +28,6 @@
   border-top-left-radius: var(--s-small);
   display: flex;
   color: var(--t-text-color);
-  font-weight: bold;
-  font-size: 1.2rem;
   height: 100%;
   justify-content: center;
   left: 0;
@@ -37,4 +36,12 @@
   top: 50%;
   transform: translateY(-50%);
   transition: 200ms all;
+}
+
+.score-input__indicator--success {
+  color: inherit;
+}
+
+.score-input__indicator--error {
+  color: red;
 }

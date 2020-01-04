@@ -3,23 +3,33 @@ import uniqueId from "../../../helpers/uniqueId";
 import "./ScoreInput.css";
 
 import { ReactComponent as CheckIcon } from "feather-icons/dist/icons/check.svg";
+import { ReactComponent as ErrorIcon } from "feather-icons/dist/icons/x.svg";
 
 class ScoreInput extends Component {
   constructor() {
     super();
+    this.state = {
+      valid: false,
+      value: ""
+    };
     this.handleScoreChange = this.handleScoreChange.bind(this);
     this.handleValueChange = this.handleValueChange.bind(this);
   }
 
   handleValueChange(event) {
-    const inputValue = event.target.value;
-    if (!isNaN(Number(inputValue)) || inputValue === "") {
-      this.handleScoreChange(this.props.id, inputValue);
-    }
+    const inputEl = event.target;
+    const inputValue = inputEl.value;
+    const validValue = inputEl.checkValidity() && inputEl.value !== "";
+
+    // this.handleScoreChange relies on `this.state.valid`
+    // so we need to ensure state is set before calling it
+    this.setState({ valid: validValue }, () => {
+      this.handleScoreChange(this.props.playerId, inputValue);
+    });
   }
 
   handleScoreChange(playerId, rawScoreValue) {
-    const newScoreValue = { score: rawScoreValue };
+    const newScoreValue = { score: rawScoreValue, valid: this.state.valid };
     if (!this.props.newValue.hasOwnProperty("id")) {
       newScoreValue.id = uniqueId();
     } else {
@@ -30,16 +40,12 @@ class ScoreInput extends Component {
 
   render() {
     return (
-      <div
-        className={
-          this.props.newValue !== ""
-            ? "score-input score-input--completed"
-            : "score-input"
-        }
-      >
+      <div className="score-input">
         <input
           className="score-input__field"
-          type="number"
+          id={`score-input__field${this.props.playerId}`}
+          type="text"
+          pattern="\d+"
           placeholder="Score?"
           value={
             this.props.newValue.hasOwnProperty("score") &&
@@ -49,10 +55,22 @@ class ScoreInput extends Component {
           }
           onChange={this.handleValueChange}
         />
-        <div className="score-input__indicator">
-          {this.props.newValue.hasOwnProperty("score") &&
-            this.props.newValue.score !== "" && <CheckIcon />}
-        </div>
+        {/* <label htmlFor="score-input__field" className="score-input__label" /> */}
+        <label
+          className="score-input__indicator"
+          htmlFor={`score-input__field${this.props.playerId}`}
+        >
+          {this.props.newValue.hasOwnProperty("valid") &&
+            this.props.newValue.valid && (
+              <CheckIcon className="score-input__indicator--success" />
+            )}
+
+          {this.props.newValue.hasOwnProperty("valid") &&
+            !this.props.newValue.valid &&
+            this.props.newValue.score !== "" && (
+              <ErrorIcon className="score-input__indicator--error" />
+            )}
+        </label>
       </div>
     );
   }

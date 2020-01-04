@@ -28,7 +28,12 @@
 }
 
 .controls-tray__button:disabled {
+  cursor: default;
   opacity: 0.4;
+}
+
+.controls-tray__button--display {
+  cursor: default;
 }
 
 .controls-tray__button--display:disabled {
