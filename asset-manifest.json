@@ -1,26 +1,28 @@
 {
   "files": {
-    "main.css": "/scoreboard-react/static/css/main.9d644c9e.chunk.css",
-    "main.js": "/scoreboard-react/static/js/main.837b17b3.chunk.js",
-    "main.js.map": "/scoreboard-react/static/js/main.837b17b3.chunk.js.map",
-    "runtime-main.js": "/scoreboard-react/static/js/runtime-main.a2962831.js",
-    "runtime-main.js.map": "/scoreboard-react/static/js/runtime-main.a2962831.js.map",
-    "static/js/2.b1bd3325.chunk.js": "/scoreboard-react/static/js/2.b1bd3325.chunk.js",
-    "static/js/2.b1bd3325.chunk.js.map": "/scoreboard-react/static/js/2.b1bd3325.chunk.js.map",
+    "main.css": "/scoreboard-react/static/css/main.4d52e012.chunk.css",
+    "main.js": "/scoreboard-react/static/js/main.5e396b52.chunk.js",
+    "main.js.map": "/scoreboard-react/static/js/main.5e396b52.chunk.js.map",
+    "runtime-main.js": "/scoreboard-react/static/js/runtime-main.62abd903.js",
+    "runtime-main.js.map": "/scoreboard-react/static/js/runtime-main.62abd903.js.map",
+    "static/js/2.c56e7c6c.chunk.js": "/scoreboard-react/static/js/2.c56e7c6c.chunk.js",
+    "static/js/2.c56e7c6c.chunk.js.map": "/scoreboard-react/static/js/2.c56e7c6c.chunk.js.map",
     "index.html": "/scoreboard-react/index.html",
-    "precache-manifest.8613e0ab07e88228cd3f718e2f4bc4cf.js": "/scoreboard-react/precache-manifest.8613e0ab07e88228cd3f718e2f4bc4cf.js",
+    "precache-manifest.5b0539edfb399bb640e9e76fe6fb1660.js": "/scoreboard-react/precache-manifest.5b0539edfb399bb640e9e76fe6fb1660.js",
     "service-worker.js": "/scoreboard-react/service-worker.js",
-    "static/css/main.9d644c9e.chunk.css.map": "/scoreboard-react/static/css/main.9d644c9e.chunk.css.map",
+    "static/css/main.4d52e012.chunk.css.map": "/scoreboard-react/static/css/main.4d52e012.chunk.css.map",
+    "static/js/2.c56e7c6c.chunk.js.LICENSE": "/scoreboard-react/static/js/2.c56e7c6c.chunk.js.LICENSE",
     "static/media/check.svg": "/scoreboard-react/static/media/check.10a5b071.svg",
     "static/media/minus.svg": "/scoreboard-react/static/media/minus.9661ba0b.svg",
     "static/media/plus.svg": "/scoreboard-react/static/media/plus.7c6c8212.svg",
     "static/media/user-minus.svg": "/scoreboard-react/static/media/user-minus.7fad484d.svg",
-    "static/media/user-plus.svg": "/scoreboard-react/static/media/user-plus.5047d004.svg"
+    "static/media/user-plus.svg": "/scoreboard-react/static/media/user-plus.5047d004.svg",
+    "static/media/x.svg": "/scoreboard-react/static/media/x.b0200bf7.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.a2962831.js",
-    "static/js/2.b1bd3325.chunk.js",
-    "static/css/main.9d644c9e.chunk.css",
-    "static/js/main.837b17b3.chunk.js"
+    "static/js/runtime-main.62abd903.js",
+    "static/js/2.c56e7c6c.chunk.js",
+    "static/css/main.4d52e012.chunk.css",
+    "static/js/main.5e396b52.chunk.js"
   ]
 }

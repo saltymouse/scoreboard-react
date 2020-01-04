@@ -1,23 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "cd149ebf86af5633a5d3027865362172",
+    "revision": "f876bd8dae6860fee5cc549a778834f1",
     "url": "/scoreboard-react/index.html"
   },
   {
-    "revision": "a6d4ef4dae68eb0dd89a",
-    "url": "/scoreboard-react/static/css/main.9d644c9e.chunk.css"
+    "revision": "8bbddfa040155f3fc720",
+    "url": "/scoreboard-react/static/css/main.4d52e012.chunk.css"
   },
   {
-    "revision": "7c592bffc3429bbbe4b8",
-    "url": "/scoreboard-react/static/js/2.b1bd3325.chunk.js"
+    "revision": "3cddf950ac433d28aac5",
+    "url": "/scoreboard-react/static/js/2.c56e7c6c.chunk.js"
   },
   {
-    "revision": "a6d4ef4dae68eb0dd89a",
-    "url": "/scoreboard-react/static/js/main.837b17b3.chunk.js"
+    "revision": "d705cb622423d72c5defbf368ca70dcc",
+    "url": "/scoreboard-react/static/js/2.c56e7c6c.chunk.js.LICENSE"
   },
   {
-    "revision": "f6b646be7dc81d28cbec",
-    "url": "/scoreboard-react/static/js/runtime-main.a2962831.js"
+    "revision": "8bbddfa040155f3fc720",
+    "url": "/scoreboard-react/static/js/main.5e396b52.chunk.js"
+  },
+  {
+    "revision": "03f4b08e543b4917cf37",
+    "url": "/scoreboard-react/static/js/runtime-main.62abd903.js"
   },
   {
     "revision": "10a5b071548379871a331ddae24e289f",
@@ -38,5 +42,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "5047d00469e004c51f6b14e245c66d6f",
     "url": "/scoreboard-react/static/media/user-plus.5047d004.svg"
+  },
+  {
+    "revision": "b0200bf7cbbb26c32989e7a0e4d19eef",
+    "url": "/scoreboard-react/static/media/x.b0200bf7.svg"
   }
 ]);
