@@ -55,7 +55,6 @@ class ScoreInput extends Component {
           }
           onChange={this.handleValueChange}
         />
-        {/* <label htmlFor="score-input__field" className="score-input__label" /> */}
         <label
           className="score-input__indicator"
           htmlFor={`score-input__field${this.props.playerId}`}
