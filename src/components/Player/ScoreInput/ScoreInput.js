@@ -47,6 +47,7 @@ class ScoreInput extends Component {
           type="text"
           pattern="^-?\d+"
           placeholder="Score?"
+          inputmode="numeric"
           value={
             this.props.newValue.hasOwnProperty("score") &&
             this.props.newValue.score !== ""
