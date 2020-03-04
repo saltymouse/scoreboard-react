@@ -1,4 +1,5 @@
 import React from "react";
+import { Trans } from "react-i18next";
 import "./ControlsTray.css";
 import { ReactComponent as PlayerAddIcon } from "feather-icons/dist/icons/user-plus.svg";
 import { ReactComponent as PlayerRemoveIcon } from "feather-icons/dist/icons/user-minus.svg";
@@ -60,7 +61,9 @@ class ControlsTray extends React.Component {
           disabled={!this.playerInputComplete()}
         >
           {this.playerInputComplete() ? <CheckIcon /> : <PlusIcon />}
-          <span className="controls-tray__label">Add Scores</span>
+          <span className="controls-tray__label">
+            <Trans>Welcome to React</Trans>
+          </span>
         </button>
 
         <button
