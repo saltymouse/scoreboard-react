@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "05a7efb537d1361657dbcd79d4128589",
+    "revision": "186bd4bc1bc5b72295b910cf90c8e120",
     "url": "/scoreboard-react/index.html"
   },
   {
-    "revision": "a899caf148061d663683",
-    "url": "/scoreboard-react/static/css/main.b09f78dd.chunk.css"
+    "revision": "c46501689642b6783409",
+    "url": "/scoreboard-react/static/css/main.c95881b1.chunk.css"
   },
   {
-    "revision": "07fb4d05f655805c98a7",
-    "url": "/scoreboard-react/static/js/2.330f6722.chunk.js"
+    "revision": "b8e44aa71a58da15faf9",
+    "url": "/scoreboard-react/static/js/2.3319472b.chunk.js"
   },
   {
     "revision": "e88a3e95b5364d46e95b35ae8c0dc27d",
-    "url": "/scoreboard-react/static/js/2.330f6722.chunk.js.LICENSE.txt"
+    "url": "/scoreboard-react/static/js/2.3319472b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a899caf148061d663683",
-    "url": "/scoreboard-react/static/js/main.61476e5d.chunk.js"
+    "revision": "c46501689642b6783409",
+    "url": "/scoreboard-react/static/js/main.033d4db4.chunk.js"
   },
   {
     "revision": "0f00ec904db88d2e1b45",

@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/scoreboard-react/static/css/main.b09f78dd.chunk.css",
-    "main.js": "/scoreboard-react/static/js/main.61476e5d.chunk.js",
-    "main.js.map": "/scoreboard-react/static/js/main.61476e5d.chunk.js.map",
+    "main.css": "/scoreboard-react/static/css/main.c95881b1.chunk.css",
+    "main.js": "/scoreboard-react/static/js/main.033d4db4.chunk.js",
+    "main.js.map": "/scoreboard-react/static/js/main.033d4db4.chunk.js.map",
     "runtime-main.js": "/scoreboard-react/static/js/runtime-main.976fab56.js",
     "runtime-main.js.map": "/scoreboard-react/static/js/runtime-main.976fab56.js.map",
-    "static/js/2.330f6722.chunk.js": "/scoreboard-react/static/js/2.330f6722.chunk.js",
-    "static/js/2.330f6722.chunk.js.map": "/scoreboard-react/static/js/2.330f6722.chunk.js.map",
+    "static/js/2.3319472b.chunk.js": "/scoreboard-react/static/js/2.3319472b.chunk.js",
+    "static/js/2.3319472b.chunk.js.map": "/scoreboard-react/static/js/2.3319472b.chunk.js.map",
     "index.html": "/scoreboard-react/index.html",
-    "precache-manifest.c3e22f637d1f32d5896e5c5fd1f24c73.js": "/scoreboard-react/precache-manifest.c3e22f637d1f32d5896e5c5fd1f24c73.js",
+    "precache-manifest.aecb6fd57056281957254816c37b0495.js": "/scoreboard-react/precache-manifest.aecb6fd57056281957254816c37b0495.js",
     "service-worker.js": "/scoreboard-react/service-worker.js",
-    "static/css/main.b09f78dd.chunk.css.map": "/scoreboard-react/static/css/main.b09f78dd.chunk.css.map",
-    "static/js/2.330f6722.chunk.js.LICENSE.txt": "/scoreboard-react/static/js/2.330f6722.chunk.js.LICENSE.txt",
+    "static/css/main.c95881b1.chunk.css.map": "/scoreboard-react/static/css/main.c95881b1.chunk.css.map",
+    "static/js/2.3319472b.chunk.js.LICENSE.txt": "/scoreboard-react/static/js/2.3319472b.chunk.js.LICENSE.txt",
     "static/media/check.svg": "/scoreboard-react/static/media/check.10a5b071.svg",
     "static/media/minus.svg": "/scoreboard-react/static/media/minus.9661ba0b.svg",
     "static/media/plus.svg": "/scoreboard-react/static/media/plus.7c6c8212.svg",
@@ -21,8 +21,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.976fab56.js",
-    "static/js/2.330f6722.chunk.js",
-    "static/css/main.b09f78dd.chunk.css",
-    "static/js/main.61476e5d.chunk.js"
+    "static/js/2.3319472b.chunk.js",
+    "static/css/main.c95881b1.chunk.css",
+    "static/js/main.033d4db4.chunk.js"
   ]
 }
