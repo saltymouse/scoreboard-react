@@ -22,7 +22,7 @@ i18n
       },
       ja: {
         translation: {
-          "add-scores": "スコアを足す",
+          "add-scores": "スコアを確定",
           "remove-scores": "スコアを消す",
           "current-round": "ゲーム目",
           "add-player": "プレーヤーを増やす",
