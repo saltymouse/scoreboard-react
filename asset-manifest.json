@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/scoreboard-react/static/css/main.c95881b1.chunk.css",
-    "main.js": "/scoreboard-react/static/js/main.033d4db4.chunk.js",
-    "main.js.map": "/scoreboard-react/static/js/main.033d4db4.chunk.js.map",
+    "main.js": "/scoreboard-react/static/js/main.96c2dfd5.chunk.js",
+    "main.js.map": "/scoreboard-react/static/js/main.96c2dfd5.chunk.js.map",
     "runtime-main.js": "/scoreboard-react/static/js/runtime-main.976fab56.js",
     "runtime-main.js.map": "/scoreboard-react/static/js/runtime-main.976fab56.js.map",
     "static/js/2.3319472b.chunk.js": "/scoreboard-react/static/js/2.3319472b.chunk.js",
     "static/js/2.3319472b.chunk.js.map": "/scoreboard-react/static/js/2.3319472b.chunk.js.map",
     "index.html": "/scoreboard-react/index.html",
-    "precache-manifest.aecb6fd57056281957254816c37b0495.js": "/scoreboard-react/precache-manifest.aecb6fd57056281957254816c37b0495.js",
+    "precache-manifest.19acbbb07c86aa8d0901d97501e46cfb.js": "/scoreboard-react/precache-manifest.19acbbb07c86aa8d0901d97501e46cfb.js",
     "service-worker.js": "/scoreboard-react/service-worker.js",
     "static/css/main.c95881b1.chunk.css.map": "/scoreboard-react/static/css/main.c95881b1.chunk.css.map",
     "static/js/2.3319472b.chunk.js.LICENSE.txt": "/scoreboard-react/static/js/2.3319472b.chunk.js.LICENSE.txt",
@@ -23,6 +23,6 @@
     "static/js/runtime-main.976fab56.js",
     "static/js/2.3319472b.chunk.js",
     "static/css/main.c95881b1.chunk.css",
-    "static/js/main.033d4db4.chunk.js"
+    "static/js/main.96c2dfd5.chunk.js"
   ]
 }
