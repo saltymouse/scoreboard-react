@@ -29,7 +29,7 @@ class ControlsTray extends React.Component {
           disabled={this.props.players.length <= 1}
         >
           <PlayerRemoveIcon />
-          <span className="controls-tray__label">Remove Player</span>
+          <span className="controls-tray__label"><Trans>remove-player</Trans></span>
         </button>
 
         <button
@@ -40,7 +40,7 @@ class ControlsTray extends React.Component {
           disabled={!this.scoreEditActive()}
         >
           <MinusIcon />
-          <span className="controls-tray__label">Remove Scores</span>
+          <span className="controls-tray__label"><Trans>remove-scores</Trans></span>
         </button>
 
         <button
@@ -50,7 +50,7 @@ class ControlsTray extends React.Component {
           disabled={true}
         >
           <div className="controls-tray__round-icon">{this.props.round}</div>
-          <span className="controls-tray__label">Current Round</span>
+          <span className="controls-tray__label"><Trans>current-round</Trans></span>
         </button>
 
         <button
@@ -62,7 +62,7 @@ class ControlsTray extends React.Component {
         >
           {this.playerInputComplete() ? <CheckIcon /> : <PlusIcon />}
           <span className="controls-tray__label">
-            <Trans>Welcome to React</Trans>
+            <Trans>add-scores</Trans>
           </span>
         </button>
 
@@ -74,7 +74,7 @@ class ControlsTray extends React.Component {
           disabled={this.props.players.length >= this.props.maxPlayers}
         >
           <PlayerAddIcon />
-          <span className="controls-tray__label">Add Player</span>
+          <span className="controls-tray__label"><Trans>add-player</Trans></span>
         </button>
       </div>
     );

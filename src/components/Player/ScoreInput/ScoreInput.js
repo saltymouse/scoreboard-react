@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Translation } from "react-i18next";
 import uniqueId from "../../../helpers/uniqueId";
 import "./ScoreInput.css";
 
@@ -10,7 +11,7 @@ class ScoreInput extends Component {
     super();
     this.state = {
       valid: false,
-      value: ""
+      value: "",
     };
     this.handleScoreChange = this.handleScoreChange.bind(this);
     this.handleValueChange = this.handleValueChange.bind(this);
@@ -41,20 +42,24 @@ class ScoreInput extends Component {
   render() {
     return (
       <div className="score-input">
-        <input
-          className="score-input__field"
-          id={`score-input__field${this.props.playerId}`}
-          type="text"
-          pattern="^-?\d+"
-          placeholder="Score?"
-          value={
-            this.props.newValue.hasOwnProperty("score") &&
-            this.props.newValue.score !== ""
-              ? this.props.newValue.score
-              : ""
-          }
-          onChange={this.handleValueChange}
-        />
+        <Translation>
+          {(t) => (
+            <input
+              className="score-input__field"
+              id={`score-input__field${this.props.playerId}`}
+              type="text"
+              pattern="^-?\d+"
+              placeholder={t("score")}
+              value={
+                this.props.newValue.hasOwnProperty("score") &&
+                this.props.newValue.score !== ""
+                  ? this.props.newValue.score
+                  : ""
+              }
+              onChange={this.handleValueChange}
+            />
+          )}
+        </Translation>
         <label
           className="score-input__indicator"
           htmlFor={`score-input__field${this.props.playerId}`}

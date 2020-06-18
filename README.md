@@ -51,6 +51,19 @@
 - `yarn start` or `npm start` - Runs the app in live-development mode.
 - `yarn build` or `npm build` - Builds the optimized production app.
 
+### Branching
+
+## Quick Legend
+
+|Instance|Branch|Description, Instructions, Notes|
+|--- |--- |--- |
+|Stable|stable|Accepts merges from Working and Hotfixes|
+|Working|master|Accepts merges from Features/Issues and Hotfixes|
+|Features/Issues|topic-*|Always branch off HEAD of Working|
+|Hotfix|hotfix-*|Always branch off Stable|
+
+
+
 ## Todo 🧩
 
 - [x] Edit/Remove Scores
